@@ -16,7 +16,7 @@ steps:
 - task: Docker@2
   displayName: Build an image
   inputs:
-    repository: swarnenduk-docker-local.jfrog.io/$(imageName)
+    repository: myartifactory.com:8082/docker/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
 - task: ArtifactoryDocker@1
