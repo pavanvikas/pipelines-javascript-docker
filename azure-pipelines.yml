@@ -19,16 +19,6 @@ steps:
     repository: swarnenduk-docker-local.jfrog.io/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
-- task: ArtifactoryDocker@1
-  inputs:
-    command: 'push'
-    artifactoryService: 'Kayal'
-    targetRepo: 'docker-local'
-    imageName: 'swarnenduk-docker-local.jfrog.io/$(imageName):$(Build.BuildId)'
-    collectBuildInfo: true
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-    includeEnvVars: true
 - task: ArtifactoryPublishBuildInfo@1
   inputs:
     artifactoryService: Kayal
