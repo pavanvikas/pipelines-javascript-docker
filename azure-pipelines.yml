@@ -16,7 +16,7 @@ steps:
 - task: Docker@2
   displayName: Build an image
   inputs:
-    repository: myartifactory.com:8082/docker/$(imageName)
+    repository: 35.199.116.14:80/docker/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
 - task: ArtifactoryDocker@1
@@ -24,7 +24,7 @@ steps:
     command: 'push'
     artifactoryService: 'Kayal'
     targetRepo: 'docker-local'
-    imageName: 'myartifactory.com:8082/docker/$(imageName):$(Build.BuildId)'
+    imageName: '35.199.116.14:80/docker/$(imageName):$(Build.BuildId)'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
