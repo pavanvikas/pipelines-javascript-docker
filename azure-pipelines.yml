@@ -19,14 +19,9 @@ steps:
     repository: 35.199.116.14:80/test-docker/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
-- task: ArtifactoryPublishBuildInfo@1
-  inputs:
-    artifactoryService: Kayal
-    buildName: $(Build.DefinitionName)
-    buildNumber: $(Build.BuildNumber)
 - task: ArtifactoryXrayScan@1
   inputs:
     artifactoryService: 'Kayal'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
+    buildName: 'testBuild'
+    buildNumber: '1'
     allowFailBuild: false
